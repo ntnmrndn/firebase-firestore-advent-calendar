@@ -9,13 +9,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var caption: Caption
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            TextField("Change caption", text: $caption.text)
+                .padding()
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(Caption())
     }
 }
+
